@@ -5,6 +5,7 @@
 */
 const express = require('express');
 const cors = require('cors');
+const { errors } = require('celebrate');
 const routes = require('./routes');
 
 
@@ -15,6 +16,7 @@ app.use(cors());
 //Faz com que o express entenda as requisições como objetos JavaScript
 app.use(express.json());
 app.use(routes);
+app.use(errors());
 
 //Deixa o programa escutando a porta 3333
 app.listen(3333);

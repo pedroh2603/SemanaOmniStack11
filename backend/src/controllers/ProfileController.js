@@ -8,5 +8,14 @@ module.exports = {
             .select('*');
 
         return response.json(incidents);
+    },
+
+    async delete(request, response){
+        const { id } = request.params;
+
+        await connection('ongs').where('id', id).delete();
+        console.log(id);
+
+        return response.status(204).send();
     }
 }
